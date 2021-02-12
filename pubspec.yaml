@@ -1,10 +1,10 @@
 name: ml_kit_image_labeler
 description: This is a Plugin which provides native ML Kit ImageLabeler API.
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/madhavtripathi05/ml_kit_image_labeler
 
 environment:
-  sdk: '>=2.16.0 <3.0.0'
+  sdk: '>=2.12.0 <3.0.0'
   flutter: '>=2.5.0'
 
 dependencies:

@@ -5,6 +5,8 @@ Plugin which provides native ML Kit ImageLabeler API
 
 **Android**
 - Set `minSdkVersion 21` in `android/app/build.gradle`
+- Add `<meta-data android:name="com.google.mlkit.vision.DEPENDENCIES" android:value="ica" />`  in  `android/src/main/AndroidManifest.xml`
+- Note: In case you are using multiple models separate them with commas `android:value="ica,ocr"`
 - Set `ext.kotlin_version = '1.6.10'` in `android/build.gradle`
 
 - *App size impact: 700KB(Using Unbundled Model, downloads model using Google play services for the first time when app launches)*, refer [here](https://developers.google.com/ml-kit/vision/image-labeling/android)

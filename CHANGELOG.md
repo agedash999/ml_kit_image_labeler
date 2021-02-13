@@ -1,3 +1,6 @@
+## 0.0.3
+
+Removed meta-data from manifest and updated readme.
 ## 0.0.2
 
 Downgraded SDK dependency.

@@ -1,6 +1,6 @@
 name: ml_kit_image_labeler
 description: This is a Plugin which provides native ML Kit ImageLabeler API.
-version: 0.0.3+1
+version: 0.0.3+2
 homepage: https://github.com/madhavtripathi05/ml_kit_image_labeler
 
 environment:

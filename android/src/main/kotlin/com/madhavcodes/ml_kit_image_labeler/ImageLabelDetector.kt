@@ -7,6 +7,7 @@ import com.google.mlkit.vision.label.defaults.ImageLabelerOptions
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
+import kotlinx.coroutines.*
 import java.util.*
 
 
@@ -14,11 +15,14 @@ import java.util.*
 //It's an abstraction over ImageLabeler provided by ml tool kit.
 class ImageLabelDetector(private val context: Context) : MethodCallHandler {
     private var imageLabeler: ImageLabeler? = null
+    private val detectionScope = CoroutineScope(Job() + Dispatchers.IO)
 
     override fun onMethodCall(call: MethodCall, result: MethodChannel.Result) {
         when (call.method) {
             START -> {
-                handleDetection(call, result)
+                detectionScope.launch {
+                    handleDetection(call, result)
+                }
             }
             CLOSE -> {
                 closeDetector()
@@ -64,6 +68,7 @@ class ImageLabelDetector(private val context: Context) : MethodCallHandler {
 
 
     private fun closeDetector() {
+        detectionScope.cancel()
         imageLabeler!!.close()
         imageLabeler = null
     }

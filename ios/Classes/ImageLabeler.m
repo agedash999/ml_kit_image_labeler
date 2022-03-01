@@ -25,9 +25,7 @@
 
 - (void)handleMethodCall:(FlutterMethodCall *)call result:(FlutterResult)result {
     if ([call.method isEqualToString:startImageLabelDetector]) {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            [self handleDetection:call result:result];
-        });
+        [self handleDetection:call result:result];
     } else if ([call.method isEqualToString:closeImageLabelDetector]) {
     } else {
         result(FlutterMethodNotImplemented);
